@@ -9,6 +9,8 @@ public class BarrelHealth : MonoBehaviour
     GameObject GetGameObject ;
     public ParticleSystem BarrelHitEffect;
     float cooldown =0, CoolDownTime = 1;
+    public AudioSource BarrelHit;
+    public AudioSource BarrelDestroy;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class BarrelHealth : MonoBehaviour
         cooldown -= Time.deltaTime;
         if (Health <= 0)
         {
+            BarrelDestroy.Play();
             Destroy(this.gameObject);
             ScoreCounter.ScoreValue += 20;
             BarrelCounter.BarrelsDestroyed += 1;
@@ -31,6 +34,7 @@ public class BarrelHealth : MonoBehaviour
     {
         if ((other.gameObject.tag == "Sword") && (cooldown <0))
         {
+            BarrelHit.Play();
             BarrelHitEffect.Play();
             Health -= Damage;
             cooldown = CoolDownTime;
