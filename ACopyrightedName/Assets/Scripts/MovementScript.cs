@@ -14,7 +14,7 @@ public class MovementScript : MonoBehaviour
     CapsuleCollider sword;
     private float cooldowntimer;
     public ParticleSystem SprintEffect;
-
+    public AudioSource SwordSound;
     private float CoolDownTime = 0.7f;
 
     // Start is called before the first frame update
@@ -84,10 +84,11 @@ public class MovementScript : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
+                    SwordSound.Play();
                     Char_Animation.SetTrigger("Attack");
                     is_currently = Player_States.Attacking;
                     sword.enabled = true;
-                    cooldowntimer = CoolDownTime;
+                    cooldowntimer = CoolDownTime;               
                 }
 
                 Char_Animation.SetFloat("ForwardSpeed", ForwardSpeed);
