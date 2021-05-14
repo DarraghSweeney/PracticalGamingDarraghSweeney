@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ScoreCount : MonoBehaviour
+public class Info : MonoBehaviour
 {
-
-    public static int ScoreValue = 0;
-    Text Score;
+    public static string InfoText;
+    Text InfoBox;
     // Start is called before the first frame update
     void Start()
     {
-        Score = GetComponent<Text>();
+        InfoBox = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Score.text = "Score: " + ScoreValue;
+        InfoBox.text = InfoText;
     }
+
+
 }
