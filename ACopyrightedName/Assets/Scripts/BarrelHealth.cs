@@ -22,7 +22,8 @@ public class BarrelHealth : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(this.gameObject);
-            ScoreCount.ScoreValue += 20;
+            ScoreCounter.ScoreValue += 20;
+            BarrelCounter.BarrelsDestroyed += 1;
         }
     }
  
@@ -33,8 +34,8 @@ public class BarrelHealth : MonoBehaviour
             BarrelHitEffect.Play();
             Health -= Damage;
             cooldown = CoolDownTime;
-            print(Health);
-            ScoreCount.ScoreValue += 10;
+           // print(Health);
+            ScoreCounter.ScoreValue += 10;
         }
     }
 }
